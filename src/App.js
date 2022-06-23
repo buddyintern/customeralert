@@ -10,13 +10,16 @@ const socket = io("https://customeralert.herokuapp.com/");
 function App() {
 
   const [customerStatus, setStatus] = useState('loading');
+  const [customerIsWaiting, setIsWaiting] = useState('no one waiting')
 
   useEffect(() => {
     handleFetch();
     socket.on("status has changed", () => {
-      console.log('status change')
       setStatus(!customerStatus);
     });
+    socket.on("isWaiting", () => {
+      setIsWaiting('a customer needs help')
+    })
     });
 
   function handleFetch() {
@@ -41,6 +44,9 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           {customerStatus}
+        </p>
+        <p>
+          {customerIsWaiting}
         </p>
 
       </header>
