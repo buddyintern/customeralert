@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     handleFetch();
-    const socket = openSocket("http://localhost:3000");
+    const socket = openSocket("https://customeralert.herokuapp.com/");
     socket.on("status has changed", () => {
       setStatus(!customerStatus);
     });
