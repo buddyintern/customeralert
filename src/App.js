@@ -2,9 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect } from "react";
 import axios from "axios";
-import openSocket from "socket.io-client";
 
 
+const io = require('socket.io-client');
+const socket = io("https://customeralert.herokuapp.com/");
 
 function App() {
 
@@ -12,7 +13,6 @@ function App() {
 
   useEffect(() => {
     handleFetch();
-    const socket = openSocket("https://customeralert.herokuapp.com/");
     socket.on("status has changed", () => {
       setStatus(!customerStatus);
     });
