@@ -14,6 +14,7 @@ function App() {
   useEffect(() => {
     handleFetch();
     socket.on("status has changed", () => {
+      console.log('status change')
       setStatus(!customerStatus);
     });
     });
