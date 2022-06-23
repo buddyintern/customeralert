@@ -24,7 +24,6 @@ function App() {
       url: "https://customeralert.herokuapp.com/",
       method: "GET",
     }).then((res) => {
-      console.log(res.data);
       setStatus(res.data);
       // console.log(res.data.data);
     });
