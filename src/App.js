@@ -20,6 +20,9 @@ function App() {
     socket.on("isWaiting", () => {
       setIsWaiting('a customer needs help')
     })
+    socket.on("partnerCame", () => {
+      setIsWaiting('a partner is helping customers')
+    })
     });
 
   function handleFetch() {
