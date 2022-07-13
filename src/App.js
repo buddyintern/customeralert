@@ -8,7 +8,7 @@ import axios from "axios";
 
 
 const io = require('socket.io-client');
-const socket = io("http://localhost:80/");
+const socket = io("https://customeralert.herokuapp.com/");
 
 
 function App() {
@@ -46,14 +46,14 @@ function App() {
 
 function handleFetch() {
   axios({
-    url: "http://localhost:80/customerCount",
+    url: "http://customeralert.herokuapp.com/customerCount",
   }).then((res) => {
     console.log("customer count is " + res.data)
     setCustomerCount(res.data)
     
   });
   axios({
-    url: "http://localhost:80/partnerCount",
+    url: "http://customeralert.herokuapp.com/partnerCount",
   }).then((res) => {
     console.log("partner count is " + res.data)
     setPartnerCount(res.data)
