@@ -42,6 +42,14 @@ function App() {
       beep();
     })
 
+    socket.on('partner count', (number) => {
+      setPartnerCount(number)
+    })
+
+    socket.on('customer count', (number) => {
+      setCustomerCount(number)
+    })
+
 })
 
 function handleFetch() {
