@@ -165,7 +165,7 @@ function App() {
 
       {curPage === "Produce" && (
         <header className="App-header" style={{ backgroundColor: produceFlag?"orange":"green" }}>
-          <h1>{produceFlag ? "Help Floral!!!" : "No help needed"}</h1>
+          <h1>{produceFlag ? "Help Floral!!!" : "No Help Needed"}</h1>
           <img
             src={svg}
             className="App-logo"
