@@ -104,7 +104,7 @@ function App() {
     if (curPage === "floral" && color === "orange") {
       console.log("test");
       time = setTimeout(() => {
-        alert('hello')
+        console.log('yar')
         setProduceFlag(true);
       }, 10000);
     }
