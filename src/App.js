@@ -14,6 +14,7 @@ function App() {
   const [partnerCount, setPartnerCount] = useState(0);
   const [curPage, setPage] = useState("floral");
   const [color, setColor] = useState("green");
+  const [produceFlag, setProduceFlag] = useState(false);
 
   useEffect(() => {
     handleFetch();
@@ -96,10 +97,15 @@ function App() {
 
     let time;
 
+    if (curPage === "floral" && color === "green") {
+      setProduceFlag(false);
+    }
+
     if (curPage === "floral" && color === "orange") {
       console.log("test");
       time = setTimeout(() => {
-        alert("produce flag set");
+        alert('hello')
+        setProduceFlag(true);
       }, 10000);
     }
 
@@ -153,6 +159,20 @@ function App() {
           />
           <h3>Customers up front: 0</h3>
 
+          <h3>Partners up front: 0</h3>
+        </header>
+      )}
+
+      {curPage === "Produce" && (
+        <header className="App-header" style={{ backgroundColor: produceFlag?"orange":"green" }}>
+          <h1>{produceFlag ? "Help Floral!!!" : "No help needed"}</h1>
+          <img
+            src={svg}
+            className="App-logo"
+            alt="logo"
+            onClick={console.log("active")}
+          />
+          <h3>{produceFlag?"HELP FLORAL, AMOUNT OF PEOPLE WAITING: " + customerCount:"customers up front: 0"}</h3>
           <h3>Partners up front: 0</h3>
         </header>
       )}
